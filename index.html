@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Card App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/24fbc0d8dc.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="card-wrapper">
+      <div class="header">
+        <form action="">
+          <div class="search">
+            <input
+              type="text"
+              name=""
+              id="search"
+              placeholder="Search for a city"
+            />
+          </div>
+        </form>
+        <div class="temp-select">
+          <p>&deg;C</p>
+          <p>&deg;F</p>
+        </div>
+      </div>
+
+      <div class="loc-section">
+        <h1>Paris, France</h1>
+        <p>Sunday, April 1st, 2024 at 9:20PM</p>
+      </div>
+
+      <div class="temp-section">
+        <div class="current-temp">
+          <h2>32&deg;</h2>
+        </div>
+
+        <div class="min-max-section">
+          <p>Min: 31&deg;</p>
+          <p>Max: 38&deg;</p>
+        </div>
+      </div>
+
+      <div class="all-stats">
+        <div class="top-row-stats">
+          <div class="feels-like stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-temperature-three-quarters"></i>
+            </div>
+            <div class="stat-description">
+              <p>Feels like</p>
+              <p>34&deg;</p>
+            </div>
+          </div>
+          <div class="humidity stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <div class="stat-description">
+              <p>Humidity</p>
+              <p>60%</p>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-row-stats">
+          <div class="wind stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <div class="stat-description">
+              <p>Wind</p>
+              <p>3.63 m/s</p>
+            </div>
+          </div>
+          <div class="pressure stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <div class="stat-description">
+              <p>Pressure</p>
+              <p>996 hPa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
