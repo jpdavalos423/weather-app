@@ -1,11 +1,10 @@
-console.log(API_KEY);
 //state
-let currCity = "London";
-let units = "metric";
+let currCity = "Turlock";
+let units = "imperial";
 
 //Selectors
-let city = document.querySelector(".weather-city");
-let datetime = document.querySelector(".weather-dataetime");
+let city = document.querySelector(".weather__city");
+let datetime = document.querySelector(".weather__datetime");
 
 //convert country code to name
 function convertCountryCode(country) {
@@ -13,16 +12,23 @@ function convertCountryCode(country) {
   return regionNames.of(country);
 }
 
-function getWeather() {
-  // const API_KEY = process.env.API_KEY;
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      city.innerHTML = `${data.name}, ${convertCountryCode(data.sys.country)}`;
-      // datetime.innerHTML =
-    });
+async function getWeather() {
+  async function connectToWeather() {
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
+      );
+      return res.json();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const weatherData = await connectToWeather();
+  console.log(weatherData);
+
+  city.innerHTML = `${weatherData.name} , 
+                    ${convertCountryCode(weatherData.sys.country)}`;
+  datetime.innerHTML = "hi";
 }
 
 document.body.addEventListener("load", getWeather());
