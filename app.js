@@ -1,3 +1,4 @@
+console.log(API_KEY);
 //state
 let currCity = "London";
 let units = "metric";
@@ -13,6 +14,7 @@ function convertCountryCode(country) {
 }
 
 function getWeather() {
+  // const API_KEY = process.env.API_KEY;
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
   )
