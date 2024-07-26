@@ -41,6 +41,28 @@ function convertLocalTime(timestamp, timezone) {
   return date.toLocaleString("en-US", options);
 }
 
+document
+  .querySelector(".metric__button")
+  .addEventListener("click", function () {
+    if (units !== "metric") {
+      units = "metric";
+      getWeather();
+    } else {
+      return;
+    }
+  });
+
+document
+  .querySelector(".imperial__button")
+  .addEventListener("click", function () {
+    if (units !== "imperial") {
+      units = "imperial";
+      getWeather();
+    } else {
+      return;
+    }
+  });
+
 async function getWeather() {
   async function connectToWeather() {
     try {
