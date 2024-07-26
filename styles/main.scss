@@ -19,7 +19,7 @@ h1 {
   color: white;
   width: 50rem;
   height: 55rem;
-  padding: 2rem;
+  padding: 2rem 3rem;
   border-radius: 2rem;
   text-align: center;
 }
@@ -28,20 +28,30 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  #search {
+  margin-bottom: 2rem;
+  .search__cityinput {
     border-radius: 3rem;
-    padding: 1rem 0;
+    padding: 1.5rem 1rem;
     border: none;
     background-color: hsl(0, 0%, 20%);
     &::placeholder {
-      padding-left: 1rem;
+      // padding-left: 1rem;
       color: hsl(0, 0%, 75%);
     }
   }
   .temp-select {
     display: flex;
     gap: 1rem;
+  }
+
+  input {
+    border: none;
+    background: hsl(0, 0%, 20%);
+    outline: none;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+    border-radius: 5px;
+    text-indent: 1rem;
   }
 }
 

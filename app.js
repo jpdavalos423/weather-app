@@ -1,6 +1,6 @@
 //state
-let currCity = "Turlock";
-let units = "imperial";
+let currCity = "Paris";
+let units = "metric";
 
 //Selectors
 let city = document.querySelector(".weather__city");
@@ -63,6 +63,19 @@ document
     }
   });
 
+document
+  .querySelector(".search__city")
+  .addEventListener("submit", function (e) {
+    let search = document.querySelector(".search__cityinput");
+    e.preventDefault();
+
+    currCity = search.value;
+
+    getWeather();
+
+    search.value = "";
+  });
+
 async function getWeather() {
   async function connectToWeather() {
     try {
@@ -75,7 +88,6 @@ async function getWeather() {
     }
   }
   const weatherData = await connectToWeather();
-  console.log(weatherData);
   city.innerHTML = `${weatherData.name}, 
                     ${convertCountryCode(weatherData.sys.country)}`;
   datetime.innerHTML = convertLocalTime(weatherData.dt, weatherData.timezone);
