@@ -1,5 +1,5 @@
 //state
-let currCity = "London";
+let currCity = "Turlock";
 let units = "imperial";
 
 //Selectors
@@ -8,6 +8,12 @@ let datetime = document.querySelector(".weather__datetime");
 let forecast = document.querySelector(".weather__forecast");
 let icon = document.querySelector(".weather__icon");
 let temp = document.querySelector(".weather__temp");
+let min = document.querySelector(".weather__min");
+let max = document.querySelector(".weather__max");
+let feelsLike = document.querySelector(".weather__feels__like");
+let humidity = document.querySelector(".weather__humidity");
+let wind = document.querySelector(".weather__wind");
+let pressure = document.querySelector(".weather__pressure");
 
 //convert country code to name
 function convertCountryCode(country) {
@@ -48,7 +54,7 @@ async function getWeather() {
   }
   const weatherData = await connectToWeather();
   console.log(weatherData);
-  city.innerHTML = `${weatherData.name} , 
+  city.innerHTML = `${weatherData.name}, 
                     ${convertCountryCode(weatherData.sys.country)}`;
   datetime.innerHTML = convertLocalTime(weatherData.dt, weatherData.timezone);
   forecast.innerHTML = weatherData.weather[0].main;
@@ -57,6 +63,12 @@ async function getWeather() {
             alt="weather icon"
           />`;
   temp.innerHTML = `${parseInt(weatherData.main.temp)}&deg;`;
+  min.innerHTML = `Min: ${weatherData.main.temp_min.toFixed()}&deg;`;
+  max.innerHTML = `Max: ${weatherData.main.temp_max.toFixed()}&deg;`;
+  feelsLike.innerHTML = `${weatherData.main.feels_like.toFixed()}&deg;`;
+  humidity.innerHTML = `${weatherData.main.humidity}%`;
+  wind.innerHTML = `${weatherData.wind.speed} m/s`;
+  pressure.innerHTML = `${weatherData.main.pressure} hPa`;
 }
 
 document.body.addEventListener("load", getWeather());
