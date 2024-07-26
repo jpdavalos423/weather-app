@@ -1,11 +1,13 @@
 //state
-let currCity = "Turlock";
+let currCity = "London";
 let units = "imperial";
 
 //Selectors
 let city = document.querySelector(".weather__city");
 let datetime = document.querySelector(".weather__datetime");
 let forecast = document.querySelector(".weather__forecast");
+let icon = document.querySelector(".weather__icon");
+let temp = document.querySelector(".weather__temp");
 
 //convert country code to name
 function convertCountryCode(country) {
@@ -45,11 +47,16 @@ async function getWeather() {
     }
   }
   const weatherData = await connectToWeather();
-
+  console.log(weatherData);
   city.innerHTML = `${weatherData.name} , 
                     ${convertCountryCode(weatherData.sys.country)}`;
   datetime.innerHTML = convertLocalTime(weatherData.dt, weatherData.timezone);
   forecast.innerHTML = weatherData.weather[0].main;
+  icon.innerHTML = `<img
+            src="https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png"
+            alt="weather icon"
+          />`;
+  temp.innerHTML = `${parseInt(weatherData.main.temp)}&deg;`;
 }
 
 document.body.addEventListener("load", getWeather());
