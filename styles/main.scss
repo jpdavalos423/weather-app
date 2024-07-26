@@ -20,6 +20,7 @@ h1 {
   width: 50rem;
   padding: 2rem;
   border-radius: 2rem;
+  text-align: center;
 }
 
 .header {
@@ -44,19 +45,30 @@ h1 {
 }
 
 .loc-section {
-  //   background-color: cornflowerblue;
-  text-align: center;
+  margin: 1rem 0;
+  .weather__city {
+    margin: 1rem 0;
+  }
+}
+
+.weather-section {
   margin: 1rem 0;
 }
 
-.temp-section {
-  background-color: seagreen;
-  text-align: center;
+.forecast-section {
+  background: #1e1e1e;
+  display: inline-block;
   margin: 1rem 0;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+}
+
+.temp-section {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
 
   .current-temp {
-    font-size: 24px;
+    font-size: 28px;
     padding: 1rem 0;
   }
 

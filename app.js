@@ -1,10 +1,11 @@
 //state
-let currCity = "London";
+let currCity = "Turlock";
 let units = "imperial";
 
 //Selectors
 let city = document.querySelector(".weather__city");
 let datetime = document.querySelector(".weather__datetime");
+let forecast = document.querySelector(".weather__forecast");
 
 //convert country code to name
 function convertCountryCode(country) {
@@ -44,11 +45,11 @@ async function getWeather() {
     }
   }
   const weatherData = await connectToWeather();
-  console.log(weatherData);
 
   city.innerHTML = `${weatherData.name} , 
                     ${convertCountryCode(weatherData.sys.country)}`;
   datetime.innerHTML = convertLocalTime(weatherData.dt, weatherData.timezone);
+  forecast.innerHTML = weatherData.weather[0].main;
 }
 
 document.body.addEventListener("load", getWeather());
